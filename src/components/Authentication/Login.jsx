@@ -17,7 +17,7 @@ const Login = () => {
           password,
         });
 
-        console.log(response);
+        console.log(response.data);
 
         if (response.data.token) {
           localStorage.setItem('authToken', response.data.token);
@@ -26,6 +26,7 @@ const Login = () => {
           alert('Invalid login response');
         }
       } catch (error) {
+        console.error('Login error:', error);
         alert(error.response?.data?.message || 'Login failed');
       }
     } else {
